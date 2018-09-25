@@ -1,38 +1,39 @@
-
 <br><br><br><br><br>
 <%# ---- FULL CONTAINER FOR ALL ---- %>
-<div class="justify-content-center align-items-center w-75 h-100 h-75 bg-transparent m-auto">
+<div class="results col-lg-12 mb-3">
   <%# ---- PART ONE ::: ARTIST BIO ---- %>
-  <div class="intro col-lg-6 p-2 mb-2 rounded">
+  <div class="intro rounded col-lg-8 text-white">
     <h2><%= @artist.name %></h2>  
       <h6>Artist Bio( from last.fm api)</h6>
       <p><%= truncate( @artistbio, escape: false, length: 450) %></p>
       <p><%=link_to "Read more...", @artistlastfm["url"] , target: "_blank", rel: "nofollow" %></p>
   </div>
 
-
+    
 
   <%# ---- PART 2 :: MUSIC PLAYER COMPONENT ---- %>
-  <div class="player d-flex align-items-start col-lg-12 p-0 mt-2 rounded">
+  <div class="player d-flex flex-wrap col-lg-12 mt-2 rounded bg-light">
+    <div class="col-lg-12 pt-2 border">
+      <h3>Here are the most popular tracks by <%= @artist.name %></h3>
+      <p>Give em a listen!</p>
+    </div>
     <%# ---- 2AAA TRACK PLAYLIST ---- %>
-    <div class="tracklist row col-lg-4 p-1">
-      <div class="m-auto border border-dark"><h4>Top Tracks</h4>
-        <button class="btn">Play</button>
-        <table class="table table-hover table-striped custab rounded">
+    <div class="tracklist row col-lg-3 p-1 ml-1 justify-content-center">
+      <h4 class="text-centered pt-3">Top Tracks</h4>
+        <div class="custabrow p-1 table table-hover table-striped rounded">
           <% @tracks.each_with_index do |track, i| %>
-            <tr>
-              <td class="p-1"><%= i + 1%></td>
-              <td><%= link_to truncate( track.name, length: 30), "/artists/#{@artist.id}/#{i}" %></td>
-            </tr>
+              <p><%= link_to truncate( track.name, length: 30), "/artists/#{@artist.id}/#{i}", id: "ajaxcall", remote:true,  class: "btn btn-outline-primary w-100"%></p>
           <% end %>
-        </table>
-      </div>
+        </div>
+      
     </div>
     <%# ---- 2BBB EMBED VIDEO HERE ---- %>
-    <div class="videoplayer row col-lg-8 p-1 border border-dark">
-        <div id="videodiv">
-          
-        </div>
+    <div class="videoplayer justify-content-center row col-lg-9 mx-auto p-3">
+      <div id="videodiv video-wrapper ">  
+      
+        <iframe width="540" height="305" type="text/html" src="https://www.youtube.com/embed/<%= @videoDefault %>?autoplay=1" frameborder="0" allow="autoplay"></iframe>
+
+      </div>
     </div>
-  </div>
-  </div>
+
+</div>

@@ -12,7 +12,10 @@ class ArtistsController < ApplicationController
       @artist = RSpotify::Artist.search(params[:artist_name]).first
       @artistlastfm = lastfm.artist.get_info(artist: params[:artist_name], autocorrect: 1)
       @artistbio = @artistlastfm["bio"]["content"]
+      @videos = Yt::Collections::Videos.new
       @tracks = @artist.top_tracks(:US)[0..4]
+      @defaulttrack = @artist.top_tracks(:US)[0].name
+      @videoDefault = @videos.where(q: "official music video for #{@artist.name} #{@defaulttrack}", order: 'relevance').first.id
     else
       redirect_to root_path
     end 
@@ -24,5 +27,6 @@ class ArtistsController < ApplicationController
     track = params[:track].to_i
     @videos = Yt::Collections::Videos.new
     @videoId = @videos.where(q: "music video for #{@artist.name} #{@tracks[track].name}", order: 'relevance').first.id
-  end
+
+    end
 end

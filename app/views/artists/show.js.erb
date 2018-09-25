@@ -1,0 +1,8 @@
+
+//confirm I am in this file
+console.log('I am hitting the js file for show')
+
+//Grab the specific place at which the task I want to replace exists
+videodiv = document.getElementById("videodiv")
+
+$('#videodiv').html("<%= j render(:partial => 'artists/show') %>");

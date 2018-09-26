@@ -25,12 +25,12 @@ $(document).ready(function(){
   $(".soundbutton").hide();
 
   $("button").click(function(){
-      const $me = $(this);
-      const $otherButtons = $("button").not($me);
+      var $me = $(this);
+      var $otherButtons = $("button").not($me);
       
       $me.find('i').toggle();
       $otherButtons.each(function(){
-        const $button = $(this);
+        var $button = $(this);
         $button.find('.playbutton').show();
         $button.find('.soundbutton').hide();
       });

@@ -17,12 +17,14 @@
 </head>
   <body>
 
+  <%= render partial: "layouts/nav" %>
 
-    <nav class="container-fullwidth "><p>testing</p></nav>
     <div class="container col-lg-10">
       <%= yield %>
     </div>
   
+
+  <%= render partial: "layouts/nav" %>
   </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </html>

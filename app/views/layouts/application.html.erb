@@ -10,19 +10,22 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
         body { 
-      background:url("<%=@artistlastfm['image'][4]["content"]%>") no-repeat center center fixed; 
+      background:url("<%=@artistlastfm['image'][4]["content"]%>") no-repeat top left fixed; 
       background-size:cover;
       }
   </style> 
 </head>
   <body>
 
+  <%= render partial: "layouts/nav" %>
 
-    <nav class="container-fullwidth "><p>testing</p></nav>
+    
     <div class="container col-lg-10">
       <%= yield %>
     </div>
   
+
+  <%= render partial: "layouts/nav" %>
   </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </html>

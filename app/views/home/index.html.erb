@@ -1,40 +1,49 @@
-
-
-
-
-
 <!-- app/views/home/index.html.erb -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-<!-- flex container -->
-<div class="d-flex h-100 align-items-center">
-  <!-- login box -->
-  <div class="m-auto">
-    
-      <%= form_tag artists_path, method: "get", html: { class: "form-inline" } do %>
+<div class="similar d-flex flex-wrap justify-content-center col-lg-12 m-3 rounded shadow bg-light">
+    <div class="player d-flex row col-lg-12 m-4 rounded shadow justify-content-center"> 
+      <div class="col-lg-4 artists">
+        
+        <%= form_tag artists_path, method: "get", html: { class: "form-inline p-2" } do %>
 
-      <div class="form-group mb-2">
-        <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-group col-xs-6 col-xs-offset-3 rounded m-2") %>
+      <div class="form-group mt-4">
+        <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-group col-xs-6 col-xs-offset-3 rounded") %>
         <%= submit_tag "Search", class: 'btn-secondary btn-sm' %>
       </div>
 
     <% end %>
+    </div>
 
     </form>
-  </div>
-</div>
+    </div>
+    </div>
 
 
-  <div class="similar d-flex flex-wrap col-lg-12 mt-5 mb-3 rounded shadow bg-light">
-      <h3 class="d-flex col-lg-12">Popular Artists</h3>
-
-    <div class="player d-flex col-lg-12 p-4 mt-4 row rounded shadow bg-light"> 
-        
-        <div class="col-lg-4">
-        
+<div class="similar d-flex flex-wrap justify-content-center col-lg-12 m-3 p-3 rounded shadow  bg-light">
+    <div class="player d-flex row col-lg-12 mt-4 rounded shadow"> 
+        <h3 class="artists d-flex col-lg-12 p-2">Recently Search for Artists</h3>
+        <% @recentartists.each do |artist| %>
+          <div class="col-lg-4 artists">
+            <p><%= artist["name"] %></p>
+            <p class="rounded"><%= image_tag("#{artist['image'][3]["content"]}")%></p>
+          </div>
+        <% end %>
       </div> 
     </div>
-    
+
+
+    <div class="similar d-flex flex-wrap justify-content-center col-lg-12 m-3 p-3 rounded shadow  bg-light">
+    <div class="player d-flex row col-lg-12 mt-4 rounded shadow"> 
+        <h3 class="d-flex col-lg-12 p-2">Popular Artists</h3>
+        <% @topartists.each do |artist| %>
+          <div class="artists col-lg-4">
+            <p><%= artist["name"] %></p>
+            <p><%= image_tag("#{artist['image'][3]["content"]}") %></p>
+          </div>
+        <% end %>
+      </div> 
     </div>
+    </div>
+
 
 
 

@@ -1,8 +1,43 @@
+
+
+
+
+
 <!-- app/views/home/index.html.erb -->
-<h1 class="page-header">Spotify Demo</h1>
-<%= form_tag artists_path, method: "get", html: { class: "form" } do %>
-  <div class="form-group col-xs-4">
-    <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<!-- flex container -->
+<div class="d-flex h-100 align-items-center">
+  <!-- login box -->
+  <div class="m-auto">
+    
+      <%= form_tag artists_path, method: "get", html: { class: "form-inline" } do %>
+
+      <div class="form-group mb-2">
+        <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-group col-xs-6 col-xs-offset-3 rounded m-2") %>
+        <%= submit_tag "Search", class: 'btn-secondary btn-sm' %>
+      </div>
+
+    <% end %>
+
+    </form>
   </div>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+</div>
+
+
+  <div class="similar d-flex flex-wrap col-lg-12 mt-5 mb-3 rounded shadow bg-light">
+      <h3 class="d-flex col-lg-12">Popular Artists</h3>
+
+    <div class="player d-flex col-lg-12 p-4 mt-4 row rounded shadow bg-light"> 
+        
+        <div class="col-lg-4">
+        
+      </div> 
+    </div>
+    
+    </div>
+
+
+
+
+
+

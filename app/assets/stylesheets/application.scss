@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ /* <iframe type="text/html" src="https://www.youtube.com/embed/<%= @videoId %>?autoplay=1" frameborder="0" allow="autoplay"></iframe> */
+
+  @import "bootstrap";
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  margin:0;
+  padding:0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant', serif;
+  font-weight: 700;
+}
+.search {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:300px;
+  height:80px;
+  background:#fff;
+  box-shadow:0 5px 20px rgba(0,0,0,.5);
+  border-radius:4px;
+  transition:width .5s;
+  overflow:hidden;
+}
+
+.search input {
+  position:absolute;
+  top:10px;
+  left:10px;
+  width:calc(100% - 90px);
+  height:60px;
+  border:none;
+  outline:none;
+  font-size:36px;
+  padding:0 10px;
+  color:#666;
+
+}
+
+.player {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.invisible {
+  display: none
+}
+
+
+.custab{
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 5% 0;
+  box-shadow: 3px 3px 2px #ccc;
+  transition: 0.5s;
+  }
+.custab:hover{
+  box-shadow: 3px 3px 0px transparent;
+  transition: 0.5s;
+  }
+
+  .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+  }
+  .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }

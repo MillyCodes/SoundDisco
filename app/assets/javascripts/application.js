@@ -14,3 +14,26 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+
+
+
+$(document).ready(function(){
+
+  $(".soundbutton").hide();
+
+  $("button").click(function(){
+      const $me = $(this);
+      const $otherButtons = $("button").not($me);
+      
+      $me.find('i').toggle();
+      $otherButtons.each(function(){
+        const $button = $(this);
+        $button.find('.playbutton').show();
+        $button.find('.soundbutton').hide();
+      });
+  });
+  $("button:first").click();
+});

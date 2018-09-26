@@ -1,20 +1,23 @@
 <!-- app/views/home/index.html.erb -->
 <div class="similar d-flex flex-wrap justify-content-center col-lg-12 m-5 rounded shadow">
-    <div class="player d-flex row col-lg-12 m-4 rounded shadow justify-content-center"> 
-      <div class="col-lg-4 artists">
-        
-        <%= form_tag artists_path, method: "get", html: { class: "form-inline p-2" } do %>
-        
 
-      <div class="form-group mt-4">
-        <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-group rounded") %>
-        <%= submit_tag "Search", class: 'btn-secondary btn-sm' %>
+    <div class="player col-lg-12 m-4 rounded shadow justify-content-center"> 
+        
+      <div>
+        <h1 class="d-flex justify-content-center col-lg-12 p-0 pt-3">Listen to the best tracks of any artist.</h1>
+        <h5 class="d-flex justify-content-center col-lg-12 p-0">Type in an artist and listen to their 5 most popular songs. </h5>
       </div>
 
-    <% end %>
+      <div class="d-flex justify-content-center col-lg-12 artists"> 
+        <%= form_tag artists_path, method: "get", html: { class: "form-inline p-2" } do %>
+          <div class="form-group mt-4">
+            <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-group rounded") %>
+            <%= submit_tag "Search", class: 'btn-secondary btn-sm' %>
+          </div>
+        <% end %> 
+        </form>
     </div>
-
-    </form>
+  </div>
     </div>
     </div>
 
@@ -46,10 +49,3 @@
       </div> 
     </div>
     </div>
-
-
-
-
-
-
-

@@ -10,8 +10,10 @@ class ArtistsController < ApplicationController
     if !params[:artist_name].empty?
       lastfm = Lastfm.new(ENV["LASTFM_KEY"], ENV["LASTFM_SECRET"])
       @artist = RSpotify::Artist.search(params[:artist_name]).first
-      @artistlastfm = lastfm.artist.get_info(artist: params[:artist_name], autocorrect: 1)
+      @artistlastfm = lastfm.artist.get_info(artist: params[:artist_name], autocorrect: 1)   
+      @getsimilar = @artistlastfm["similar"]["artist"]
       @artistbio = @artistlastfm["bio"]["content"]
+      @artisttags = @artistlastfm["tags"]["tag"]
       @videos = Yt::Collections::Videos.new
       @tracks = @artist.top_tracks(:US)[0..4]
       @defaulttrack = @artist.top_tracks(:US)[0].name

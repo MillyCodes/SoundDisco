@@ -1,7 +1,12 @@
+
+
+
+
+
 <!-- app/views/home/index.html.erb -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
 <!-- flex container -->
-<div class="d-flex h-100">
+<div class="d-flex h-100 align-items-center">
   <!-- login box -->
   <div class="m-auto">
     
@@ -16,5 +21,23 @@
 
     </form>
   </div>
+</div>
+
+
+  <div class="similar d-flex flex-wrap col-lg-12 mt-5 mb-3 rounded shadow bg-light">
+      <h3 class="d-flex col-lg-12">Popular Artists</h3>
+
+    <div class="player d-flex col-lg-12 p-4 mt-4 row rounded shadow bg-light"> 
+        
+        <div class="col-lg-4">
+        <%= @topartists[0]["name"] %>   
+      </div> 
+    </div>
+    
+    </div>
+
+
+
+
 
 

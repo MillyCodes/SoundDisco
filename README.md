@@ -4,8 +4,7 @@ SoundDisco is an artist discovery website built with Ruby on Rails, multiple API
 
 Things you may want to cover:
 
-* Ruby version
-
+* Ruby versio
 * System dependencies
 
 * Configuration

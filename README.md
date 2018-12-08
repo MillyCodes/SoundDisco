@@ -18,7 +18,6 @@ Learning Objectives with SoundDisco are to demonstrate an understanding of Ruby 
 -   Lastfm 'lastfm' Gem
 -   SASS 3.5
 -   Bootstrap 4
--   JQuery
 
 # Functionality
 
